@@ -1,6 +1,7 @@
 package cn.bingosplash;
 
 import cn.bingosplash.events.EventHandler;
+import cn.bingosplash.messagemanagers.MessageManager;
 import cn.bingosplash.tasks.FetchServer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -11,6 +12,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 public class BingoSplashCN {
     public static final String MODID = "BingoSplash";
     public static final String VERSION = "1.0.0";
+    public static final MessageManager messageManager = new MessageManager();
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {

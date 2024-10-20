@@ -1,5 +1,6 @@
 package cn.bingosplash.events;
 
+import cn.bingosplash.BingoSplashCN;
 import cn.bingosplash.tasks.FetchServer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -9,14 +10,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class EventHandler {
     @SubscribeEvent
     public void onRenderGameOverlay(RenderGameOverlayEvent.Post event) {
-        if (event.type != RenderGameOverlayEvent.ElementType.TEXT || FetchServer.getLastMessage() == null) {
+        if (event.type != RenderGameOverlayEvent.ElementType.TEXT || BingoSplashCN.messageManager.getLastMessage() == null) {
             return;
         }
 
         Minecraft mc = Minecraft.getMinecraft();
         FontRenderer fontRenderer = mc.fontRendererObj;
 
-        String message = FetchServer.getLastMessage();
+        String message = BingoSplashCN.messageManager.getLastMessage();
         int x = (event.resolution.getScaledWidth() - fontRenderer.getStringWidth(message)) / 2;
         int y = 66;
         int color = 0xFFFFFF;
@@ -28,7 +29,7 @@ public class EventHandler {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            FetchServer.setLastMessage(null);
+            BingoSplashCN.messageManager.setLastMessage(null);
         }).start();
     }
 }

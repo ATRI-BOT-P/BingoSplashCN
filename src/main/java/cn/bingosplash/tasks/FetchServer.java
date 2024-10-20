@@ -1,5 +1,6 @@
 package cn.bingosplash.tasks;
 
+import cn.bingosplash.BingoSplashCN;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -14,15 +15,6 @@ import java.util.TimerTask;
 @ClientEndpoint
 public class FetchServer {
     public static Session session;
-    private static String lastMessage = "";
-
-    public static String getLastMessage() {
-        return lastMessage;
-    }
-
-    public synchronized static void setLastMessage(String lastMessage) {
-        FetchServer.lastMessage = lastMessage;
-    }
 
     @OnOpen
     public void onOpen(Session session) {
@@ -35,7 +27,7 @@ public class FetchServer {
             JsonObject gson = new Gson().fromJson(message, JsonElement.class).getAsJsonObject();
             if (gson.get("status").getAsInt() == 200) {
                 if (gson.get("type").getAsString().equals("splash") && gson.get("content").getAsString() != null) {
-                    lastMessage = "§6§l提醒: §e" + gson.get("content").getAsString();
+                    BingoSplashCN.messageManager.setLastMessage("§6§l提醒: §e" + gson.get("content").getAsString());
                     Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("§7[§dBingo§5Splash§cCN§7] [WS] §a接收到BingoSplash提醒消息: §e" + gson.get("content").getAsString()));
                     Minecraft.getMinecraft().addScheduledTask(() -> {
                         Minecraft.getMinecraft().thePlayer.playSound(
