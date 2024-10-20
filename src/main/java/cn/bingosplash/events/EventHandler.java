@@ -1,7 +1,6 @@
 package cn.bingosplash.events;
 
 import cn.bingosplash.BingoSplashCN;
-import cn.bingosplash.tasks.FetchServer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
