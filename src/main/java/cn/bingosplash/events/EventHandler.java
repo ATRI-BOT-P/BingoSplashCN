@@ -6,7 +6,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class EventHandler {
+public final class EventHandler {
     @SubscribeEvent
     public void onRenderGameOverlay(RenderGameOverlayEvent.Post event) {
         if (event.type != RenderGameOverlayEvent.ElementType.TEXT || BingoSplashCN.messageManager.getLastMessage() == null) {
@@ -22,6 +22,7 @@ public class EventHandler {
         int color = 0xFFFFFF;
 
         fontRenderer.drawString(message, x, y, color);
+        // 等待5秒消失字符串, 按照DragPrio的ctjs写法
         new Thread(() -> {
             try {
                 Thread.sleep(5 * 1000);
