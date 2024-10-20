@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "BingoSplash",
+    "name": "BingoSplashCN",
+    "description": "Hypixel SkyBlock Bingo Splash MOD",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "Me0wo"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
