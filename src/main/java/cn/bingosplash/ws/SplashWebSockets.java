@@ -23,21 +23,22 @@ public final class SplashWebSockets {
 
     @OnClose
     public void onClose(Session session, CloseReason closeReason) {
-        reconnect();
-        System.out.println("WS断开连接, 断开理由: " + closeReason.toString());
+        connectToWebSocket();
+        System.out.println("WS断开连接尝试重连, 断开理由: " + closeReason.toString());
     }
 
     public void connectToWebSocket() {
-        try {
-            session = ContainerProvider.getWebSocketContainer().connectToServer(SplashWebSockets.class, URI.create("wss://ws.meownya.asia/api"));
-        } catch (Exception e) {
-            reconnect();
-            e.printStackTrace();
+        if (session == null || !session.isOpen()) {
+            try {
+                session = ContainerProvider.getWebSocketContainer().connectToServer(SplashWebSockets.class, URI.create("wss://ws.meownya.asia/api"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                reconnect();
+                connectToWebSocket();
             }
         }, 5000, 5000);
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
@@ -49,11 +50,5 @@ public final class SplashWebSockets {
                 e.printStackTrace();
             }
         }));
-    }
-
-    public void reconnect() {
-        if (session == null || !session.isOpen()) {
-            connectToWebSocket();
-        }
     }
 }
