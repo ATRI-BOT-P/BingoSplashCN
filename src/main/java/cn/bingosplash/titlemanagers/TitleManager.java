@@ -1,6 +1,6 @@
-package cn.bingosplash.messagemanagers;
+package cn.bingosplash.titlemanagers;
 
-public final class MessageManager {
+public final class TitleManager {
     private String lastMessage;
 
     public String getLastMessage() {

@@ -9,14 +9,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public final class EventHandler {
     @SubscribeEvent
     public void onRenderGameOverlay(RenderGameOverlayEvent.Post event) {
-        if (event.type != RenderGameOverlayEvent.ElementType.TEXT || BingoSplashCN.messageManager.getLastMessage() == null) {
+        if (event.type != RenderGameOverlayEvent.ElementType.TEXT || BingoSplashCN.titleManager.getLastMessage() == null) {
             return;
         }
 
         Minecraft mc = Minecraft.getMinecraft();
         FontRenderer fontRenderer = mc.fontRendererObj;
 
-        String message = BingoSplashCN.messageManager.getLastMessage();
+        String message = BingoSplashCN.titleManager.getLastMessage();
         int x = (event.resolution.getScaledWidth() - fontRenderer.getStringWidth(message)) / 2;
         int y = 66;
         int color = 0xFFFFFF;
@@ -29,7 +29,7 @@ public final class EventHandler {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            BingoSplashCN.messageManager.setLastMessage(null);
+            BingoSplashCN.titleManager.setLastMessage(null);
         }).start();
     }
 }

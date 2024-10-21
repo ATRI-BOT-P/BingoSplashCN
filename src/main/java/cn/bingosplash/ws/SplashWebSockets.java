@@ -1,6 +1,6 @@
 package cn.bingosplash.ws;
 
-import cn.bingosplash.handlers.WSHandler;
+import cn.bingosplash.handlers.MessageHandler;
 
 import javax.websocket.*;
 import java.net.URI;
@@ -18,7 +18,7 @@ public final class SplashWebSockets {
 
     @OnMessage
     public void onMessage(String message) {
-        WSHandler.handlerContent(message);
+        MessageHandler.handlerContent(message);
     }
 
     @OnClose
@@ -39,7 +39,7 @@ public final class SplashWebSockets {
                 public void run() {
                     new Thread(() -> new SplashWebSockets().connectToWebSocket()).start();
                 }
-            }, 5000, 5000);
+            }, 10000, 10000);
         }
     }
 }

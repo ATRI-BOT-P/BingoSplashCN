@@ -5,7 +5,7 @@ import cn.bingosplash.datas.ContentType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 
-public final class WSHandler {
+public final class MessageHandler {
     // 返回bool, false说明没被显示
     public static boolean handlerContent(String content) {
         // 判断是否在游戏
@@ -20,7 +20,7 @@ public final class WSHandler {
                 return false;
             }
             if (contentType.Type.equals("splash")) {
-                BingoSplashCN.messageManager.setLastMessage("§6收到一条 §d§lBingo §5§lSplash §6提醒");
+                BingoSplashCN.titleManager.setLastMessage("§6收到一条 §d§lBingo §5§lSplash §6提醒");
                 Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("§d§lBingo §5§lSplash §a-> " + contentType.Content));
                 Minecraft.getMinecraft().addScheduledTask(() -> {
                     Minecraft.getMinecraft().thePlayer.playSound(
