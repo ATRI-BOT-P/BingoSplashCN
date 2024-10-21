@@ -1,4 +1,4 @@
-name: gradle
+name: BingoSplashCN
 
 on:
   push:
@@ -36,6 +36,8 @@ jobs:
         with:
           java-version: '8'
           distribution: 'temurin'
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
       - name: Get current tag
         id: get_version
         run: |
@@ -67,7 +69,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.tag }}
-          name: Forge 1.8.9 Build ${{ env.tag }}
+          name: BingoSplashCN Release ${{ env.tag }}
           body: |
             **Full Changelog**: https://github.com/your_repo/compare/${{ env.current_tag }}...${{ env.tag }}
           draft: false
