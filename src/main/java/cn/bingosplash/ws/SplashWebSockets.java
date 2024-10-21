@@ -23,7 +23,7 @@ public final class SplashWebSockets {
 
     @OnClose
     public void onClose(Session session, CloseReason closeReason) {
-        connectToWebSocket();
+        new Thread(() -> new SplashWebSockets().connectToWebSocket()).start();
         System.out.println("WS断开连接尝试重连, 断开理由: " + closeReason.toString());
     }
 
@@ -34,21 +34,12 @@ public final class SplashWebSockets {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        new Timer().scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                connectToWebSocket();
-            }
-        }, 5000, 5000);
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            try {
-                if (session != null && session.isOpen()) {
-                    session.close();
+            new Timer().scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    new Thread(() -> new SplashWebSockets().connectToWebSocket()).start();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }));
+            }, 5000, 5000);
+        }
     }
 }

@@ -19,6 +19,14 @@
 
 ---
 
+## 国人Bingo社区
+- 576137320
+- 939192158
+
+---
+
+## 贡献者
+
 同时感谢以下开发者对 BingoSplashCN 作出的贡献：
 
 <a href="https://github.com/Sn0wo2/BingoSplashCN/graphs/contributors">
