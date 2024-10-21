@@ -29,17 +29,12 @@ public final class SplashWebSockets {
 
     public void connectToWebSocket() {
         if (session == null || !session.isOpen()) {
+            System.out.println("正在连接WS...");
             try {
                 session = ContainerProvider.getWebSocketContainer().connectToServer(SplashWebSockets.class, URI.create("wss://ws.meownya.asia/api"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            new Timer().scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    new Thread(() -> new SplashWebSockets().connectToWebSocket()).start();
-                }
-            }, 10000, 10000);
         }
     }
 }
