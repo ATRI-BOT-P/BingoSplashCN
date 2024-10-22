@@ -2,6 +2,7 @@ package cn.bingosplash.handlers;
 
 import cn.bingosplash.BingoSplashCN;
 import cn.bingosplash.datas.ContentType;
+import cn.bingosplash.loggers.BSLogger;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 
@@ -12,11 +13,11 @@ public final class MessageHandler {
         if (Minecraft.getMinecraft().thePlayer != null) {
             ContentType contentType = new ContentType(content);
             if (contentType.Status != null && contentType.Status != 200) {
-                System.out.println("WS返回错误: " + contentType.Status + " " + contentType.Type + " " + contentType.Content);
+                BSLogger.severe("WS返回错误: " + contentType.Status + " " + contentType.Type + " " + contentType.Content);
                 return false;
             }
             if (contentType.Content == null) {
-                System.out.println("WS返回空内容");
+                BSLogger.warning("WS返回空内容");
                 return false;
             }
             // 解析splash消息

@@ -1,6 +1,7 @@
 package cn.bingosplash.events;
 
 import cn.bingosplash.BingoSplashCN;
+import cn.bingosplash.loggers.BSLogger;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
@@ -21,7 +22,7 @@ public final class RenderGameOverlay {
             try {
                 Thread.sleep(5 * 1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                BSLogger.severe("暂停线程时出现错误: " + e.getMessage());
             }
             BingoSplashCN.titleManager.setLastMessage(null);
         }).start();
