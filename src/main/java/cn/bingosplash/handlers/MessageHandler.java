@@ -9,10 +9,13 @@ import net.minecraft.util.ChatComponentText;
 public final class MessageHandler {
     // 返回bool, false说明没被显示
     public static boolean handlerContent(String content) {
+        ContentType contentType = new ContentType(content);
+        // debug
+        BSLogger.info("WS内容: " + contentType.Status + " " + contentType.Type + " " + contentType.Content);
         // 判断是否在游戏
         if (Minecraft.getMinecraft().thePlayer != null) {
-            ContentType contentType = new ContentType(content);
             if (contentType.Status != null && contentType.Status != 200) {
+                // 重复
                 BSLogger.severe("WS返回错误: " + contentType.Status + " " + contentType.Type + " " + contentType.Content);
                 return false;
             }
@@ -31,7 +34,7 @@ public final class MessageHandler {
                 });
                 return true;
             }
-            // 后端提醒消息/或其他类型
+            // 后端提醒消息/或其他类型, 固定前缀防止出现伪造消息漏洞
             if (contentType.Type.equals("msg")) {
                 Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("§7[§dBingo§5Splash§cCN§7] §a-> " + contentType.Content));
                 return true;

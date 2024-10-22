@@ -14,7 +14,7 @@ plugins {
 
 apply plugin: "net.minecraftforge.gradle.forge"
 
-version = "1.0.6"
+version = "1.0.7"
 group = "cn.bingosplash"
 archivesBaseName = "BingoSplashCN"
 sourceCompatibility = targetCompatibility = 1.8
