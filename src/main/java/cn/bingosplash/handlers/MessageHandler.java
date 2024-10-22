@@ -3,6 +3,7 @@ package cn.bingosplash.handlers;
 import cn.bingosplash.BingoSplashCN;
 import cn.bingosplash.datas.ContentType;
 import cn.bingosplash.loggers.BSLogger;
+import cn.bingosplash.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 
@@ -23,8 +24,9 @@ public final class MessageHandler {
                 BSLogger.warning("WS返回空内容");
                 return false;
             }
-            // 解析splash消息
-            if (contentType.Type.equals("splash")) {
+            // 解析splash消息, 后端返回消息会包含SplashID, 防止Splash消息重复, 我感觉五位数重复的概率挺小的了
+            if (contentType.Type.equals("splash") && Utils.splashIDSet.contains(contentType)) {
+                Utils.splashIDSet.add(contentType);
                 BingoSplashCN.titleManager.setLastMessage("§6收到一条 §d§lBingo §5§lSplash §6提醒");
                 Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("§d§lBingo §5§lSplash §a-> " + contentType.Content));
                 Minecraft.getMinecraft().addScheduledTask(() -> {

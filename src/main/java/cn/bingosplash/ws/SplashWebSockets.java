@@ -37,7 +37,7 @@ public final class SplashWebSockets {
                 session = ContainerProvider.getWebSocketContainer().connectToServer(SplashWebSockets.class, URI.create("wss://ws.meownya.asia/api"));
             } catch (Exception e) {
                 isConnect = false;
-                BSLogger.severe("WS连接失败");
+                BSLogger.severe("WS连接失败: " + e.getMessage());
             }
         }
     }
@@ -47,7 +47,7 @@ public final class SplashWebSockets {
             try {
                 session.close();
             } catch (IOException e) {
-                BSLogger.severe("WS断开连接失败:", e);
+                BSLogger.severe("WS断开连接失败:" + e.getMessage());
             }
             session = null;
             isConnect = false;
