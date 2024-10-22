@@ -3,7 +3,7 @@ buildscript {
         maven { url "https://maven.minecraftforge.net" }
     }
     dependencies {
-        classpath "net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT"
+        classpath "net.minecraftforge.gradle:ForgeGradle:2.1.3"
     }
 }
 
@@ -14,7 +14,7 @@ plugins {
 
 apply plugin: "net.minecraftforge.gradle.forge"
 
-version = "1.0.4"
+version = "1.0.5"
 group = "cn.bingosplash"
 archivesBaseName = "BingoSplashCN"
 sourceCompatibility = targetCompatibility = 1.8
