@@ -1,4 +1,4 @@
-package updater;
+package cn.bingosplash.updater;
 
 import cn.bingosplash.loggers.BSLogger;
 

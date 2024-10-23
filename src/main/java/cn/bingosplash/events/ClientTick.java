@@ -1,11 +1,11 @@
 package cn.bingosplash.events;
 
 import cn.bingosplash.BingoSplashCN;
+import cn.bingosplash.updater.CheckUpdate;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import updater.CheckUpdate;
 
 public final class ClientTick {
     @SubscribeEvent

@@ -9,6 +9,7 @@ public final class TitleManager {
         }
     }
 
+    // 实时渲染title, 设置null为停止渲染
     public void setLastMessage(String lastMessage) {
         synchronized (this) {
             this.lastMessage = lastMessage;

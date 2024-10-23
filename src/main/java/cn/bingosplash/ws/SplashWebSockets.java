@@ -51,6 +51,7 @@ public final class SplashWebSockets {
             }
             session = null;
             isConnect = false;
+            BSLogger.info("WS断开连接成功");
         }
     }
 }

@@ -6,7 +6,9 @@ import com.google.gson.JsonObject;
 
 public class ContentType {
     public Integer Status;
+
     public String Type;
+
     public String Content;
 
     public ContentType(String json) {

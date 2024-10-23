@@ -48,11 +48,6 @@ public final class MessageHandler {
             }
             // 没有被前面解析的消息
             Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("§7[§dBingo§5Splash§cCN§7] §a-> 无法解析 " + contentType.Type + ": " + contentType.Content));
-            Minecraft.getMinecraft().addScheduledTask(() -> {
-                Minecraft.getMinecraft().thePlayer.playSound(
-                        "random.orb", 1.0F, 1.0F
-                );
-            });
             return true;
         }
         return false;
