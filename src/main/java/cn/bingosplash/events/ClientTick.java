@@ -23,7 +23,7 @@ public final class ClientTick {
                     return;
                 }
                 Minecraft.getMinecraft().thePlayer.addChatMessage(
-                        new ChatComponentText("§7[§dBingo§5Splash§cCN§7] §a发现新版本: §cv" + ghVersion));
+                        new ChatComponentText("§7[§dBingo§5Splash§cCN§7] §a发现新版本: §chttps://github.com/Sn0wo2/BingoSplashCN/releases/tag/v" + ghVersion));
             }).start();
         }
     }

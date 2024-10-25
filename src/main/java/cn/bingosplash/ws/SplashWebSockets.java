@@ -10,6 +10,7 @@ import java.net.URI;
 @ClientEndpoint
 public final class SplashWebSockets {
     public static Session session;
+    // session赋值似乎有延迟, 所以用自己的变量以判断是否连接, 防止出现重复连接 :skull:
     public static boolean isConnect = false;
 
     @OnOpen

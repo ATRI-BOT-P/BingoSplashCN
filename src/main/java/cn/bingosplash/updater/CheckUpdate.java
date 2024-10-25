@@ -13,6 +13,7 @@ public class CheckUpdate {
     public static String CheckUpdate() {
         BSLogger.info("开始检查更新");
         try {
+            // 不获取 pre release
             URL url = new URL("https://api.github.com/repos/Sn0wo2/BingoSplashCN/releases/latest");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -27,9 +28,8 @@ public class CheckUpdate {
                 }
                 reader.close();
 
-                // 解析JSON以提取最新的tag
-                String jsonResponse = response.toString();
-                return jsonResponse.split("\"tag_name\":\"")[1].split("\"")[0];
+                // 解析出tag_name
+                return response.toString().split("\"tag_name\":\"")[1].split("\"")[0];
             } else {
                 BSLogger.severe("CheckUpdate错误的状态码: " + connection.getResponseCode());
                 return null;
