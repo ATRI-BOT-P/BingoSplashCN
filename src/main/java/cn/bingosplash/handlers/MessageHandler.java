@@ -25,7 +25,7 @@ public final class MessageHandler {
                 return false;
             }
             // 解析splash消息, 后端返回消息会包含SplashID, 防止Splash消息重复, 我感觉重复的概率挺小的了, 发送的内容也不会很大
-            if (contentType.Type.equals("splash") && Utils.splashIDSet.contains(contentType)) {
+            if (contentType.Type.equals("splash") && !Utils.splashIDSet.contains(contentType)) {
                 Utils.splashIDSet.add(contentType);
                 BingoSplashCN.titleManager.setLastMessage("§6收到一条 §d§lBingo §5§lSplash §6提醒");
                 Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("§d§lBingo §5§lSplash §a-> " + contentType.Content));
