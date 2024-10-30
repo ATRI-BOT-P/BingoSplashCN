@@ -24,7 +24,7 @@ public final class BSLogger {
     }
 
     public static void severe(String format, Object... data) {
-        log(Level.ERROR, "[BingoSplashCN] " + format, data);
+        log(Level.ERROR, format, data);
     }
 
     public static void bigWarning(String format, Object... data) {

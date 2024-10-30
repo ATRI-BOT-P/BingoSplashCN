@@ -12,16 +12,16 @@ public final class MessageHandler {
     public static boolean handlerContent(String content) {
         ContentType contentType = new ContentType(content);
         // debug
-        BSLogger.info("WS内容: " + contentType.Status + " " + contentType.Type + " " + contentType.Content);
+        BSLogger.info("WS Content: " + contentType.Status + " " + contentType.Type + " " + contentType.Content);
         // 判断是否在游戏
         if (Minecraft.getMinecraft().thePlayer != null) {
             if (contentType.Status != null && contentType.Status != 200) {
                 // 重复
-                BSLogger.severe("WS返回错误: " + contentType.Status + " " + contentType.Type + " " + contentType.Content);
+                BSLogger.severe("WS Error: " + contentType.Status + " " + contentType.Type + " " + contentType.Content);
                 return false;
             }
             if (contentType.Content == null) {
-                BSLogger.warning("WS返回空内容");
+                BSLogger.warning("WS Return empty content");
                 return false;
             }
             // 解析splash消息, 后端返回消息会包含SplashID, 防止Splash消息重复, 我感觉重复的概率挺小的了, 发送的内容也不会很大

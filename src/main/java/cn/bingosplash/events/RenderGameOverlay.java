@@ -22,7 +22,7 @@ public final class RenderGameOverlay {
             try {
                 Thread.sleep(5 * 1000);
             } catch (InterruptedException e) {
-                BSLogger.severe("暂停线程时出现错误: " + e.getMessage());
+                BSLogger.severe("Stop thread catch: " + e.getMessage());
             }
             BingoSplashCN.titleManager.setLastMessage(null);
         }).start();

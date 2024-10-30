@@ -11,7 +11,7 @@ public class CheckUpdate {
     public static boolean alreadyCheck = false;
 
     public static String CheckUpdate() {
-        BSLogger.info("开始检查更新");
+        BSLogger.info("Start check update");
         try {
             // 不获取 pre release
             URL url = new URL("https://api.github.com/repos/Sn0wo2/BingoSplashCN/releases/latest");
@@ -31,11 +31,11 @@ public class CheckUpdate {
                 // 解析出tag_name
                 return response.toString().split("\"tag_name\":\"")[1].split("\"")[0];
             } else {
-                BSLogger.severe("CheckUpdate错误的状态码: " + connection.getResponseCode());
+                BSLogger.severe("GitHub API return worng status code: " + connection.getResponseCode());
                 return null;
             }
         } catch (Exception e) {
-            BSLogger.severe("CheckUpdate出现错误: " + e.getMessage());
+            BSLogger.severe("CheckUpdate catch: " + e.getMessage());
             return null;
         }
     }

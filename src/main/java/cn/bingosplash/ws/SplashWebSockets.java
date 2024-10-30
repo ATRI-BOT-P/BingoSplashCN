@@ -15,7 +15,7 @@ public final class SplashWebSockets {
 
     @OnOpen
     public void onOpen(Session session) {
-        BSLogger.info("WS连接成功");
+        BSLogger.info("WS Connect");
     }
 
     @OnMessage
@@ -27,18 +27,18 @@ public final class SplashWebSockets {
     public void onClose(Session session, CloseReason closeReason) {
         isConnect = false;
         connectToWebSocket();
-        BSLogger.warning("WS断开连接尝试重连, 断开理由: " + closeReason.toString());
+        BSLogger.warning("WS Disconnected, Reason: " + closeReason.getReasonPhrase() + " Code: " + closeReason.getCloseCode());
     }
 
     public void connectToWebSocket() {
         if (!isConnect) {
             isConnect = true;
-            BSLogger.info("尝试连接WS");
+            BSLogger.info("Trying connect WS");
             try {
                 session = ContainerProvider.getWebSocketContainer().connectToServer(SplashWebSockets.class, URI.create("wss://ws.meownya.asia/api"));
             } catch (Exception e) {
                 isConnect = false;
-                BSLogger.severe("WS连接失败: " + e.getMessage());
+                BSLogger.severe("WS Connect failed: " + e.getMessage());
             }
         }
     }
@@ -48,11 +48,11 @@ public final class SplashWebSockets {
             try {
                 session.close();
             } catch (IOException e) {
-                BSLogger.severe("WS断开连接失败:" + e.getMessage());
+                BSLogger.severe("WS Disconnect failed:" + e.getMessage());
             }
             session = null;
             isConnect = false;
-            BSLogger.info("WS断开连接成功");
+            BSLogger.info("WS Disconnected");
         }
     }
 }
