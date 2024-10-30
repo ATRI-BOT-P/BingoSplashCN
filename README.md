@@ -18,6 +18,10 @@
 
 - 通过触发 ATRI-BOT 机器人命令后服务端会发一个ws json到客户端mod, mod解析json并渲染标题, 同时播放声音和发送聊天消息等等
 
+## 安全性(RAT)
+
+- MOD所有代码均已开源, 请自行查阅, 请不要下载除本仓库以外任何打着 BingoSplashCN 名号的MOD
+
 ## 隐私
 
 - 我们尊重您的隐私, 我们不向服务端主动发送您的任何个人信息
@@ -33,7 +37,7 @@
 
 ---
 
-## Star History
+## 点颗星
 
 <a href="https://star-history.com/#Sn0wo2/BingoSplashCN&Date">
  <picture>
