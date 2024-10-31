@@ -24,12 +24,6 @@ public class ReconnectWS extends CommandBase {
     }
 
     @Override
-    public boolean isUsernameIndex(String[] args, int index) {
-        return false; // No username arguments are expected
-    }
-
-
-    @Override
     public void processCommand(ICommandSender sender, String[] args) {
         Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("Reconnecting..."));
         new Thread(() -> BingoSplashCN.splashWebSockets.connectToWebSocket()).start();
