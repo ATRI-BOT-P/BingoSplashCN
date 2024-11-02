@@ -17,6 +17,8 @@ public final class SplashWebSockets extends Endpoint {
     // session赋值似乎有延迟, 所以用自己的变量以判断是否连接, 防止出现重复连接 :skull:
     public static boolean isConnect = false;
 
+    public static String lastDisconnectMsg = null;
+
     @OnOpen
     public void onOpen(Session session) {
         BSLogger.info("WS Connect");
@@ -36,6 +38,7 @@ public final class SplashWebSockets extends Endpoint {
     public void onClose(Session session, CloseReason closeReason) {
         isConnect = false;
         connectToWebSocket();
+        lastDisconnectMsg = "Reason: " + closeReason.getReasonPhrase() + " Code: " + closeReason.getCloseCode();
         BSLogger.warning("WS Disconnected, Reason: " + closeReason.getReasonPhrase() + " Code: " + closeReason.getCloseCode());
     }
 
@@ -72,6 +75,7 @@ public final class SplashWebSockets extends Endpoint {
             }
             session = null;
             isConnect = false;
+            lastDisconnectMsg = "主动断开";
             BSLogger.info("WS Disconnected");
         }
     }
