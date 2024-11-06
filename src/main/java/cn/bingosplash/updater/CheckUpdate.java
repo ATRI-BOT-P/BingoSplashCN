@@ -14,7 +14,7 @@ public class CheckUpdate {
         BSLogger.info("Start check update");
         try {
             // 不获取 pre release
-            URL url = new URL("https://api.github.com/repos/Sn0wo2/BingoSplashCN/releases/latest");
+            URL url = new URL("https://api.github.com/repos/ATRI-BOT-P/BingoSplashCN/releases/latest");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 

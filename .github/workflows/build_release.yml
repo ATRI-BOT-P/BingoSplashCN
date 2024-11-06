@@ -71,7 +71,7 @@ jobs:
           tag_name: ${{ env.tag }}
           name: BingoSplashCN Release ${{ env.tag }}
           body: |
-            **Full Changelog**: https://github.com/Sn0wo2/BingoSplashCN/compare/${{ env.current_tag }}...${{ env.tag }}
+            **Full Changelog**: https://github.com/ATRI-BOT-P/BingoSplashCN/compare/${{ env.current_tag }}...${{ env.tag }}
             GitHub Action Build
           draft: false
           prerelease: false

@@ -2,7 +2,7 @@
 
 ---
 
-[![License](https://img.shields.io/github/license/Sn0wo2/BingoSplashCN.svg?style=flat-square&logo=gnu)](https://raw.githubusercontent.com/Sn0wo2/BingoSplashCN/main/LICENSE)
+[![License](https://img.shields.io/github/license/ATRI-BOT-P/BingoSplashCN.svg?style=flat-square&logo=gnu)](https://raw.githubusercontent.com/ATRI-BOT-P/BingoSplashCN/main/LICENSE)
 
 ## 如何使用
 
@@ -39,11 +39,11 @@
 
 ## 点颗星
 
-<a href="https://star-history.com/#Sn0wo2/BingoSplashCN&Date">
+<a href="https://star-history.com/#ATRI-BOT-P/BingoSplashCN&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Sn0wo2/BingoSplashCN&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Sn0wo2/BingoSplashCN&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Sn0wo2/BingoSplashCN&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ATRI-BOT-P/BingoSplashCN&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ATRI-BOT-P/BingoSplashCN&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ATRI-BOT-P/BingoSplashCN&type=Date" />
  </picture>
 </a>
 
@@ -51,8 +51,8 @@
 
 同时感谢以下开发者对 BingoSplashCN 作出的贡献：
 
-<a href="https://github.com/Sn0wo2/BingoSplashCN/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Sn0wo2/BingoSplashCN&max=1000" />
+<a href="https://github.com/ATRI-BOT-P/BingoSplashCN/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ATRI-BOT-P/BingoSplashCN&max=1000" />
 </a>
 
 ---
