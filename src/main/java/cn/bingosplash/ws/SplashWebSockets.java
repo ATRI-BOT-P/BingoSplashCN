@@ -51,8 +51,9 @@ public final class SplashWebSockets extends Endpoint {
                 ClientEndpointConfig.Configurator configurator = new ClientEndpointConfig.Configurator() {
                     @Override
                     public void beforeRequest(Map<String, List<String>> headers) {
-                        // 表头仅发送版本号
+                        // 发送版本号, 兼容旧版本
                         headers.put("BingoSplashCN", Collections.singletonList(BingoSplashCN.VERSION));
+                        headers.put("version", Collections.singletonList(BingoSplashCN.VERSION));
                     }
                 };
 

@@ -10,7 +10,8 @@ import java.net.URL;
 public class CheckUpdate {
     public static boolean alreadyCheck = false;
 
-    public static String CheckUpdate() {
+
+    public static String StartCheck() {
         BSLogger.info("Start check update");
         try {
             // 不获取 pre release

@@ -21,7 +21,7 @@ public final class RenderGameOverlay {
         new Thread(() -> {
             try {
                 Thread.sleep(5 * 1000);
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 BSLogger.severe("Stop thread catch: " + e.getMessage());
             }
             BingoSplashCN.titleManager.setLastMessage(null);
