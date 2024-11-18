@@ -73,11 +73,12 @@ public final class SplashWebSockets extends Endpoint {
                 session.close();
             } catch (IOException e) {
                 BSLogger.severe("WS Disconnect failed:" + e.getMessage());
+            } finally {
+                session = null;
+                isConnect = false;
+                lastDisconnectMsg = "主动断开";
+                BSLogger.info("WS Disconnected");
             }
-            session = null;
-            isConnect = false;
-            lastDisconnectMsg = "主动断开";
-            BSLogger.info("WS Disconnected");
         }
     }
 }
