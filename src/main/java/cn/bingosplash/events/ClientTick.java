@@ -14,12 +14,14 @@ public final class ClientTick {
         if (Minecraft.getMinecraft().thePlayer != null && !CheckUpdate.alreadyCheck) {
             CheckUpdate.alreadyCheck = true;
             new Thread(() -> {
-                String ghVersion = CheckUpdate.CheckUpdate();
-                if (!ghVersion.startsWith("v")) {
+                String ghVersion = CheckUpdate.StartCheck();
+                if (ghVersion != null && !ghVersion.startsWith("v")) {
                     return;
                 }
-                ghVersion = ghVersion.replaceFirst("v", "");
-                if (ghVersion.equals(BingoSplashCN.VERSION)) {
+                if (ghVersion != null) {
+                    ghVersion = ghVersion.replaceFirst("v", "");
+                }
+                if (ghVersion != null && ghVersion.equals(BingoSplashCN.VERSION)) {
                     return;
                 }
                 Minecraft.getMinecraft().thePlayer.addChatMessage(

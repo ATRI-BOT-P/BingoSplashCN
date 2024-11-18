@@ -1,7 +1,7 @@
 package cn.bingosplash.ws;
 
 import cn.bingosplash.BingoSplashCN;
-import cn.bingosplash.handlers.MessageHandler;
+import cn.bingosplash.handlers.ContentHandler;
 import cn.bingosplash.loggers.BSLogger;
 
 import javax.websocket.*;
@@ -26,7 +26,7 @@ public final class SplashWebSockets extends Endpoint {
 
     @OnMessage
     public void onMessage(String message) {
-        MessageHandler.handlerContent(message);
+        ContentHandler.contentHandler(message);
     }
 
     @Override
@@ -51,8 +51,9 @@ public final class SplashWebSockets extends Endpoint {
                 ClientEndpointConfig.Configurator configurator = new ClientEndpointConfig.Configurator() {
                     @Override
                     public void beforeRequest(Map<String, List<String>> headers) {
-                        // 表头仅发送版本号
+                        // 发送版本号, 兼容旧版本
                         headers.put("BingoSplashCN", Collections.singletonList(BingoSplashCN.VERSION));
+                        headers.put("version", Collections.singletonList(BingoSplashCN.VERSION));
                     }
                 };
 
@@ -72,11 +73,12 @@ public final class SplashWebSockets extends Endpoint {
                 session.close();
             } catch (IOException e) {
                 BSLogger.severe("WS Disconnect failed:" + e.getMessage());
+            } finally {
+                session = null;
+                isConnect = false;
+                lastDisconnectMsg = "主动断开";
+                BSLogger.info("WS Disconnected");
             }
-            session = null;
-            isConnect = false;
-            lastDisconnectMsg = "主动断开";
-            BSLogger.info("WS Disconnected");
         }
     }
 }

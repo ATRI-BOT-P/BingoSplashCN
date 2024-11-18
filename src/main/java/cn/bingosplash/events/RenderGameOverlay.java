@@ -7,6 +7,8 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import java.util.concurrent.CompletableFuture;
+
 public final class RenderGameOverlay {
     @SubscribeEvent
     public void onRenderGameOverlay(RenderGameOverlayEvent.Post event) {
@@ -17,14 +19,17 @@ public final class RenderGameOverlay {
         FontRenderer fontRenderer = mc.fontRendererObj;
         String message = BingoSplashCN.titleManager.getLastMessage();
         mc.fontRendererObj.drawString(message, (event.resolution.getScaledWidth() - fontRenderer.getStringWidth(message)) / 2, 66, 0xFFFFFF);
-        // 等待5秒消失字符串, 按照DragPrio的ctjs写法
-        new Thread(() -> {
+        CompletableFuture.runAsync(() -> {
             try {
                 Thread.sleep(5 * 1000);
             } catch (InterruptedException e) {
                 BSLogger.severe("Stop thread catch: " + e.getMessage());
+            } finally {
+                BingoSplashCN.titleManager.setLastMessage(null);
             }
-            BingoSplashCN.titleManager.setLastMessage(null);
-        }).start();
+        }).exceptionally(e -> {
+            BSLogger.severe("Error occurred: " + e.getMessage());
+            return null;
+        });
     }
 }

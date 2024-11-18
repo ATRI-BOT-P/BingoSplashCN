@@ -21,11 +21,13 @@ public final class BingoSplashCN {
 
     public static final String MODID = "BingoSplash";
 
-    public static final String VERSION = "1.1.6";
+    public static final String VERSION = "1.1.7";
 
     public static final TitleManager titleManager = new TitleManager();
 
     public static SplashWebSockets splashWebSockets = new SplashWebSockets();
+
+    private static TimerTask task;
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
@@ -35,16 +37,18 @@ public final class BingoSplashCN {
         ClientCommandHandler.instance.registerCommand(new ReconnectWS());
         ClientCommandHandler.instance.registerCommand(new WStatus());
         // 不明原因有时候会断开, 暂时创建一个task判断重连
-        new Timer().scheduleAtFixedRate(new TimerTask() {
+        task = new TimerTask() {
             @Override
             public void run() {
-                new Thread(() -> splashWebSockets.connectToWebSocket()).start();
+                splashWebSockets.connectToWebSocket();
             }
-        }, 10000, 10000);
+        };
+        new Timer().scheduleAtFixedRate(task, 10000, 10000);
     }
 
     @Mod.EventHandler
     public void stop(FMLServerStoppingEvent event) {
+        if (task != null) task.cancel();
         splashWebSockets.disconnect();
         BSLogger.info("cya~");
     }

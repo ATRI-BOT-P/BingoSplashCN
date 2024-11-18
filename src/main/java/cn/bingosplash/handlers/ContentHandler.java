@@ -7,9 +7,11 @@ import cn.bingosplash.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 
-public final class MessageHandler {
+import java.util.concurrent.CompletableFuture;
+
+public final class ContentHandler {
     // 返回bool, false说明没被显示
-    public static boolean handlerContent(String content) {
+    public static boolean contentHandler(String content) {
         ContentType contentType = new ContentType(content);
         // debug
         BSLogger.info("WS Content: " + contentType.Status + " " + contentType.Type + " " + contentType.Content);
@@ -34,7 +36,18 @@ public final class MessageHandler {
                             "random.orb", 1.0F, 1.0F
                     );
                 });
-                return true;
+                CompletableFuture.runAsync(() -> {
+                    try {
+                        Thread.sleep(5 * 1000);
+                    } catch (InterruptedException e) {
+                        BSLogger.severe("Stop thread catch: " + e.getMessage());
+                    } finally {
+                        Utils.splashIDSet.remove(contentType);
+                    }
+                }).exceptionally(e -> {
+                    BSLogger.severe("Error occurred: " + e.getMessage());
+                    return null;
+                });
             }
             // 后端提醒消息/或其他类型, 固定前缀防止出现伪造消息漏洞
             if (contentType.Type.equals("msg")) {
