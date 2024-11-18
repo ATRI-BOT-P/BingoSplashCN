@@ -41,7 +41,7 @@ public final class MessageHandler {
                         BSLogger.severe("Stop thread catch: " + e.getMessage());
                     }
                     Utils.splashIDSet.remove(contentType);
-                    }).start();
+                }).start();
                 return true;
             }
             // 后端提醒消息/或其他类型, 固定前缀防止出现伪造消息漏洞
