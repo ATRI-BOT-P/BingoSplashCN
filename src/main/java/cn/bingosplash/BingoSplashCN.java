@@ -31,7 +31,7 @@ public final class BingoSplashCN {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        BSLogger.info("Loading");
+        BSLogger.info("Loading...");
         MinecraftForge.EVENT_BUS.register(new RenderGameOverlay());
         MinecraftForge.EVENT_BUS.register(new ClientTick());
         ClientCommandHandler.instance.registerCommand(new ReconnectWS());
