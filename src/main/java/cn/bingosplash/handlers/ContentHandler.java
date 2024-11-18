@@ -9,9 +9,9 @@ import net.minecraft.util.ChatComponentText;
 
 import java.util.concurrent.CompletableFuture;
 
-public final class MessageHandler {
+public final class ContentHandler {
     // 返回bool, false说明没被显示
-    public static boolean handlerContent(String content) {
+    public static boolean contentHandler(String content) {
         ContentType contentType = new ContentType(content);
         // debug
         BSLogger.info("WS Content: " + contentType.Status + " " + contentType.Type + " " + contentType.Content);

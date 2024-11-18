@@ -1,7 +1,7 @@
 package cn.bingosplash.ws;
 
 import cn.bingosplash.BingoSplashCN;
-import cn.bingosplash.handlers.MessageHandler;
+import cn.bingosplash.handlers.ContentHandler;
 import cn.bingosplash.loggers.BSLogger;
 
 import javax.websocket.*;
@@ -26,7 +26,7 @@ public final class SplashWebSockets extends Endpoint {
 
     @OnMessage
     public void onMessage(String message) {
-        MessageHandler.handlerContent(message);
+        ContentHandler.contentHandler(message);
     }
 
     @Override

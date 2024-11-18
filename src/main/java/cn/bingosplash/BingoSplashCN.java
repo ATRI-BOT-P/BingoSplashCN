@@ -40,7 +40,7 @@ public final class BingoSplashCN {
         task = new TimerTask() {
             @Override
             public void run() {
-                new Thread(() -> splashWebSockets.connectToWebSocket()).start();
+                splashWebSockets.connectToWebSocket();
             }
         };
         new Timer().scheduleAtFixedRate(task, 10000, 10000);
