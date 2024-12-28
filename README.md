@@ -1,4 +1,4 @@
-# BingoSplashCN
+![BingoSplashCN](https://socialify.git.ci/ATRI-BOT-P/BingoSplashCN/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Overlapping+Hexagons&pulls=1&stargazers=1&theme=Auto)
 
 ---
 
