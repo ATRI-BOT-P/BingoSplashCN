@@ -1,8 +1,12 @@
-# BingoSplashCN
+![BingoSplashCN](https://socialify.git.ci/ATRI-BOT-P/BingoSplashCN/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Overlapping+Hexagons&pulls=1&stargazers=1&theme=Auto)
 
 ---
 
 [![License](https://img.shields.io/github/license/ATRI-BOT-P/BingoSplashCN.svg?style=flat-square&logo=gnu)](https://raw.githubusercontent.com/ATRI-BOT-P/BingoSplashCN/main/LICENSE)
+
+
+![BingoSplashCN](https://counter.seku.su/cmoe?name=BingoSplashCN&theme=r34)
+---
 
 ## 如何使用
 
@@ -10,9 +14,11 @@
 
 ## 无法连接连接或连接不稳定
 
-- 服务端网络环境并不是非常理想, 有时候连不上也许是服务端因素, 大部分可能是你的网络环境本身不稳定, 部分加速器或加速IP不会加速/代理ws请求,
-  部分加速器甚至会直接拦截
+- 服务端网络环境并不是非常理想, 大部分可能是你的网络环境本身不稳定
+- 部分加速器或加速IP不会加速/代理websocket请求
+- 部分加速器甚至会直接拦截请求
 - 目前大部分玩家不使用任何加速器/代理软件连接并无异常
+- 若实在无法连接请更换你的DNS地址或发送[Issue](https://github.com/ATRI-BOT-P/BingoSplashCN/issues)
 
 ## 原理
 
@@ -26,7 +32,7 @@
 
 - 我们尊重您的隐私, 我们不向服务端主动发送您的任何个人信息
 - 我们仅从服务端保存用于正常维护的不包含任何个人信息的必要数据/日志
-- 由于技术原理我们甚至不会记录您的IP
+- 由于技术原理我们不会记录您的IP
 
 ---
 
@@ -47,7 +53,7 @@
  </picture>
 </a>
 
-## 贡献者
+## 贡献者(欢迎PR❤~)
 
 同时感谢以下开发者对 BingoSplashCN 作出的贡献：
 
@@ -56,5 +62,3 @@
 </a>
 
 ---
-
-欢迎PR
