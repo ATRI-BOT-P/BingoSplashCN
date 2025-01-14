@@ -21,9 +21,10 @@ public final class RenderGameOverlay {
         mc.fontRendererObj.drawString(message, (event.resolution.getScaledWidth() - fontRenderer.getStringWidth(message)) / 2, 66, 0xFFFFFF);
         CompletableFuture.runAsync(() -> {
             try {
+                // sleep 5s 后消失标题
                 Thread.sleep(5 * 1000);
             } catch (InterruptedException e) {
-                BSLogger.severe("Stop thread catch: " + e.getMessage());
+                BSLogger.severe("Sleep thread catch: " + e.getMessage());
             } finally {
                 BingoSplashCN.titleManager.setLastMessage(null);
             }

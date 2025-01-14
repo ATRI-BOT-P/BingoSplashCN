@@ -2,17 +2,13 @@
   {
     "modid": "BingoSplash",
     "name": "BingoSplashCN",
-    "description": "Hypixel SkyBlock Bingo Splash MOD",
+    "description": "Hypixel skyblock BingoSplash remind mod",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "https://github.com/ATRI-BOT-P/BingoSplashCN",
     "updateUrl": "https://github.com/ATRI-BOT-P/BingoSplashCN/releases",
     "authorList": [
       "Me0wo"
-    ],
-    "credits": "",
-    "logoFile": "",
-    "screenshots": [],
-    "dependencies": []
+    ]
   }
 ]
