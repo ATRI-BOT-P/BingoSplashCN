@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 public final class ClientTick {
     @SubscribeEvent
     public void onClientTicket(TickEvent.ClientTickEvent event) {
-        // CheckUpdate
+        // Check update
         if (Minecraft.getMinecraft().thePlayer != null && !CheckUpdate.alreadyCheck) {
             CheckUpdate.alreadyCheck = true;
             new Thread(() -> {
@@ -25,7 +25,7 @@ public final class ClientTick {
                     return;
                 }
                 Minecraft.getMinecraft().thePlayer.addChatMessage(
-                        new ChatComponentText("§7[§dBingo§5Splash§cCN§7] §a发现新版本: §chttps://github.com/ATRI-BOT-P/BingoSplashCN/releases/tag/v" + ghVersion));
+                        new ChatComponentText("§7[§dBingo§5Splash§cCN§7] §an发现新版本: §chttps://github.com/ATRI-BOT-P/BingoSplashCN/releases/tag/v" + ghVersion));
             }).start();
         }
     }

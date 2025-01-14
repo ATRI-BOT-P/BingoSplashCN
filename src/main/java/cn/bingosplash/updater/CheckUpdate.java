@@ -14,6 +14,8 @@ public class CheckUpdate {
     public static String StartCheck() {
         BSLogger.info("Start check update");
         try {
+            // 请求GitHub API
+            //
             // 不获取 pre release
             URL url = new URL("https://api.github.com/repos/ATRI-BOT-P/BingoSplashCN/releases/latest");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -36,7 +38,7 @@ public class CheckUpdate {
                 return null;
             }
         } catch (Exception e) {
-            BSLogger.severe("CheckUpdate catch: " + e.getMessage());
+            BSLogger.severe("Check update catch: " + e.getMessage());
             return null;
         }
     }

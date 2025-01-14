@@ -26,16 +26,12 @@ public class WStatus extends CommandBase {
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
         String msg = "§6WS状态:\n";
-        if (SplashWebSockets.session != null) {
-            msg += "§e已成功连接到服务端: §7" + SplashWebSockets.session.getId() + "\n";
-        } else {
-            msg += "§c尚未连接到服务端, 最后的断开理由: §7" + SplashWebSockets.lastDisconnectMsg + "\n";
-        }
-        if (SplashWebSockets.isConnect) {
-            msg += "正在尝试连接中, 最后的断开理由: §7" + SplashWebSockets.lastDisconnectMsg + "\n";
-        } else {
-            msg += "尚未开始尝试连接, 最后的断开理由: §7" + SplashWebSockets.lastDisconnectMsg + "\n";
-        }
+        msg += SplashWebSockets.session != null ?
+                "§e已成功连接到服务端: §7" + SplashWebSockets.session.getId() + "\n" :
+                "§c尚未连接到服务端, 最后的断开理由: §7" + SplashWebSockets.lastDisconnectMsg + "\n";
+        msg += SplashWebSockets.isConnect ?
+                "正在尝试连接中, 最后的断开理由: §7" + SplashWebSockets.lastDisconnectMsg + "\n" :
+                "尚未开始尝试连接, 最后的断开理由: §7" + SplashWebSockets.lastDisconnectMsg + "\n";
         Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(msg));
     }
 }

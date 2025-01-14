@@ -14,7 +14,7 @@ import java.util.Map;
 @ClientEndpoint
 public final class SplashWebSockets extends Endpoint {
     public static Session session;
-    // session赋值似乎有延迟, 所以用自己的变量以判断是否连接, 防止出现重复连接 :skull:
+    // session赋值有延迟, 使用其他变量以判断是否连接, 防止出现重复连接 :skull:
     public static boolean isConnect = false;
 
     public static String lastDisconnectMsg = null;
@@ -68,7 +68,7 @@ public final class SplashWebSockets extends Endpoint {
     }
 
     public void disconnect() {
-        if (isConnect || session != null || session.isOpen()) {
+        if (isConnect || session != null && session.isOpen() || session != null) {
             try {
                 session.close();
             } catch (IOException e) {

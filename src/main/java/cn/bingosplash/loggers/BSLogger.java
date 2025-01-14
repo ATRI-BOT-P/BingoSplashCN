@@ -5,22 +5,25 @@ import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings("static-access")
 public final class BSLogger {
+
+    private static String prefix = "[BingoSplashCN] ";
+
     private static net.minecraftforge.fml.relauncher.FMLRelaunchLog coreLog = net.minecraftforge.fml.relauncher.FMLRelaunchLog.log;
 
     public static void log(String targetLog, Level level, String format, Object... data) {
-        coreLog.log(targetLog, level, "[BingoSplashCN] " + format, data);
+        coreLog.log(targetLog, level, prefix + format, data);
     }
 
     public static void log(Level level, String format, Object... data) {
-        coreLog.log(level, "[BingoSplashCN] " + format, data);
+        coreLog.log(level, prefix + format, data);
     }
 
     public static void log(String targetLog, Level level, Throwable ex, String format, Object... data) {
-        coreLog.log(targetLog, level, ex, "[BingoSplashCN] " + format, data);
+        coreLog.log(targetLog, level, ex, prefix + format, data);
     }
 
     public static void log(Level level, Throwable ex, String format, Object... data) {
-        coreLog.log(level, ex, "[BingoSplashCN] " + format, data);
+        coreLog.log(level, ex, prefix + format, data);
     }
 
     public static void severe(String format, Object... data) {
