@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/github/license/ATRI-BOT-P/BingoSplashCN.svg?style=flat-square&logo=gnu)](https://raw.githubusercontent.com/ATRI-BOT-P/BingoSplashCN/main/LICENSE)
 
 
-![BingoSplashCN](https://counter.seku.su/cmoe?name=BingoSplashCN&theme=r34)
+![BingoSplashCN](https://count.getloli.com/@BingoSplashCN?name=BingoSplashCN&theme=capoo-2&padding=7&offset=0&align=center&scale=1&pixelated=0&darkmode=auto)
 ---
 
 ## 如何使用
