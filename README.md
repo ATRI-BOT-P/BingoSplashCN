@@ -8,6 +8,9 @@
 ![BingoSplashCN](https://counter.seku.su/cmoe?name=BingoSplashCN&theme=r34)
 ---
 
+
+此MOD已不再被积极维护
+
 ## 如何使用
 
 - 确保你安装了 1.8.9 的forge, 放置到mods文件夹
