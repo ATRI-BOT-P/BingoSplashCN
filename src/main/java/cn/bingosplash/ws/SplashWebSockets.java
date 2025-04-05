@@ -59,7 +59,7 @@ public final class SplashWebSockets extends Endpoint {
 
                 ClientEndpointConfig clientConfig = ClientEndpointConfig.Builder.create().configurator(configurator).build();
                 WebSocketContainer container = ContainerProvider.getWebSocketContainer();
-                session = container.connectToServer(SplashWebSockets.class, clientConfig, URI.create("wss://ws.meownya.asia/api"));
+                session = container.connectToServer(SplashWebSockets.class, clientConfig, URI.create("wss://splash.me0wo.top/api"));
             } catch (Exception e) {
                 isConnect = false;
                 BSLogger.severe("WS Connect failed: " + e.getMessage());

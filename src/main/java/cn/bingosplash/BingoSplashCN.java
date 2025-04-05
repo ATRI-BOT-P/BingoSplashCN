@@ -21,7 +21,7 @@ public final class BingoSplashCN {
 
     public static final String MODID = "BingoSplash";
 
-    public static final String VERSION = "1.1.8";
+    public static final String VERSION = "1.1.9";
 
     public static final TitleManager titleManager = new TitleManager();
 
